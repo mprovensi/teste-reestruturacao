@@ -1,0 +1,50 @@
+<h2 mat-dialog-title>Editar Lotação</h2>
+<mat-dialog-content>
+
+
+    <div class="example-container">
+        <form>
+      
+          <div class="example-form-fields">
+            <mat-form-field style="margin-right: 1rem;">
+              <mat-label>Nome</mat-label>
+              <input matInput placeholder="Nome da Lotação" required>
+            </mat-form-field>
+      
+            <mat-form-field style="margin-right: 1rem;">
+              <mat-label>Descrição</mat-label>
+              <input matInput placeholder="Descrição da Lotação" required>
+            </mat-form-field>
+      
+            <mat-form-field style="margin-right: 1rem;">
+              <mat-label>Servidores</mat-label>
+              <input matInput placeholder="Número de servidores" required>
+            </mat-form-field>
+      
+            <mat-form-field style="margin-right: 1rem;">
+              <mat-label>Transformar</mat-label>
+              <select matNativeControl style="width: 10rem;">
+                <option value="FC1">FC1</option>
+                <option value="FC2">FC2</option>
+                <option value="FC3">FC3</option>
+                <option value="FC4">FC4</option>
+              </select>
+            </mat-form-field>
+      
+            <mat-form-field style="margin-right: 1rem;">
+              <mat-label>Mover</mat-label>
+              <select matNativeControl style="width: 10rem;">
+                <option value="FC1">Lotação 1</option>
+                <option value="FC2">Lotação 2</option>
+                <option value="FC3">Lotação 3</option>
+                <option value="FC4">Lotação 4</option>
+              </select>
+            </mat-form-field>
+          </div>
+        </form>
+      </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="data.nome" cdkFocusInitial>Salvar</button>
+</mat-dialog-actions>
