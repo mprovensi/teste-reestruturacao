@@ -30,6 +30,7 @@ import {
 interface FoodNode {
   id: string;
   name: string;
+  tipo?: string;
   children?: FoodNode[];
 }
 
@@ -41,23 +42,28 @@ export interface DialogData {
 const TREE_DATA: FoodNode[] = [
   {
     id: '1',
-    name: 'SECRETARIA DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO - CJ-3',   
+    name: 'SECRETARIA DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO - CJ-3',
+    tipo: 'UNIDADE',
     children: [
       {
         id: '2',
         name: 'COORDENADORIA DE INFRAESTRUTURA DE TIC - CJ-2',
+        tipo: 'UNIDADE',
         children: [
           {
             id: '3',
             name: 'SEÇÃO DE BANCO DE DADOS - FC-5',
+            tipo: 'UNIDADE',
           },
           {
             id: '4',
             name: 'DIVISÃO DE DATA CENTER E REDES - CJ-1',
+            tipo: 'UNIDADE',
             children: [
               {
                 id: '5',
                 name: 'SEÇÃO DE REDES DE COMUNICAÇÃO - FC-5',
+                tipo: 'UNIDADE',
                 children: [
                   {
                     id: '6',
@@ -70,6 +76,7 @@ const TREE_DATA: FoodNode[] = [
           {
             id: '7',
             name: 'DIVISÃO DE ADMINISTRAÇÃO DE SERVIDORES DE APLICAÇÃO - CJ-1',
+            tipo: 'UNIDADE',
             children: [
               {
                 id: '8',
@@ -82,14 +89,17 @@ const TREE_DATA: FoodNode[] = [
       {
         id: '9',
         name: 'COORDENADORIA DE SISTEMAS DE INFORMAÇÃO - CJ-2',
+        tipo: 'UNIDADE',
         children: [
           {
             id: '10',
-            name: 'SEÇÃO DE ATENDIMENTO AO PJE - FC-5'
+            name: 'SEÇÃO DE ATENDIMENTO AO PJE - FC-5',
+            tipo: 'UNIDADE',
           },
           {
             id: '11',
             name: 'DIVISÃO DE MANUTENÇÃO DE SISTEMAS - CJ-1',
+            tipo: 'UNIDADE',
             children: [
               {
                 id: '12',
@@ -99,7 +109,8 @@ const TREE_DATA: FoodNode[] = [
           },
           {
             id: '13',
-            name: 'SEÇÃO DE ADMINISTRAÇÃO DO E-GESTÃO'
+            name: 'SEÇÃO DE ADMINISTRAÇÃO DO E-GESTÃO',
+            tipo: 'UNIDADE',
           },
           {
             id: '14',
@@ -126,10 +137,12 @@ const TREE_DATA: FoodNode[] = [
       {
         id: '19',
         name: 'DIVISÃO DE ATENDIMENTO DE TIC - CJ-1',
+        tipo: 'UNIDADE',
         children: [
           {
             id: '20',
             name: 'SEÇÃO DE MANUTENÇÃO DE MICROINFORMÁTICA - FC-5',
+            tipo: 'UNIDADE',
             children: [
               {
                 id: '21',
@@ -142,20 +155,24 @@ const TREE_DATA: FoodNode[] = [
       {
         id: '22',
         name: 'COORDENADORIA DE RELACIONAMENTO DE TIC - CJ-2',
+        tipo: 'UNIDADE',
         children: [
           {
             id: '23',
-            name: 'SEÇÃO DE OTIMIZAÇÃO DO ATENDIMENTO DE TIC - FC-5'
+            name: 'SEÇÃO DE OTIMIZAÇÃO DO ATENDIMENTO DE TIC - FC-5',
+            tipo: 'UNIDADE',
           },
         ],
       },
       {
         id: '24',
         name: 'COORDENADORIA DE PLANEJAMENTO E GESTÃO DE TIC - CJ-2',
+        tipo: 'UNIDADE',
         children: [
           {
             id: '25',
             name: 'SEÇÃO DE APOIO ÀS CONTRATAÇÕES DE TIC - FC-5',
+            tipo: 'UNIDADE',
             children: [
               {
                 id: '26',
