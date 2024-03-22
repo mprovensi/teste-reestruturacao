@@ -46,5 +46,5 @@
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancelar</button>
-  <button mat-button [mat-dialog-close]="data.nome" cdkFocusInitial>Salvar</button>
+  <button mat-button (click)="onPersist(data.nome)"  cdkFocusInitial>Salvar</button>
 </mat-dialog-actions>

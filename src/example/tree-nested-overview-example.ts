@@ -9,7 +9,9 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import {FloatLabelType, MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
+import {MatGridListModule} from '@angular/material/grid-list';
 import {
   MatDialog,
   MAT_DIALOG_DATA,
@@ -36,31 +38,60 @@ export interface DialogData {
 
 const TREE_DATA: FoodNode[] = [
   {
-    name: 'Tribunal Pleno',
+    name: 'SECRETARIA DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO',
     children: [
       {
-        name: 'Presidência',
+        name: 'COORDENADORIA DE INFRAESTRUTURA DE TIC',
         children: [
           {
-            name: 'Gabinete da Presidência - CJ2',
+            name: 'SEÇÃO DE BANCO DE DADOS',
+          },
+          {
+            name: 'DIVISÃO DE DATA CENTER E REDES',
             children: [
-              {name: 'Seção de Informação- FC3'}
+              {name: 'SEÇÃO DE REDES DE COMUNICAÇÃO '}
             ]
-          }
+          },
+          {
+            name: 'DIVISÃO DE ADMINISTRAÇÃO DE SERVIDORES DE APLICAÇÃO',
+          },
         ],
       },
       {
-        name: 'Diretoria Geral',
-        children: [{name: 'Seção de Legislação - FC4'}],
+        name: 'COORDENADORIA DE SISTEMAS DE INFORMAÇÃO',
+        children: [
+          {name: 'SEÇÃO DE ATENDIMENTO AO PJE'},
+          {name: 'DIVISÃO DE MANUTENÇÃO DE SISTEMAS'},
+          {name: 'SEÇÃO DE ADMINISTRAÇÃO DO E-GESTÃO'}
+        ],
       },
       {
-        name: 'Desembargadores',
+        name: 'DIVISÃO DE ATENDIMENTO DE TIC',
+        children: [
+          {name: 'SEÇÃO DE MANUTENÇÃO DE MICROINFORMÁTICA '},
+        ],
       },
       {
-        name: 'Turmas',
+        name: 'COORDENADORIA DE RELACIONAMENTO DE TIC',
+        children: [
+          {name: 'SEÇÃO DE OTIMIZAÇÃO DO ATENDIMENTO DE TIC'},
+        ],
+      },
+      {
+        name: 'COORDENADORIA DE PLANEJAMENTO E GESTÃO DE TIC',
+        children: [
+          {name: 'SEÇÃO DE APOIO ÀS CONTRATAÇÕES DE TIC'},
+        ],
       },
     ],
   },
+];
+
+const mudancas: {
+  nome: string;
+  cor: string;
+  detalhes: string;
+}[] = [
 ];
 
 /**
@@ -81,6 +112,8 @@ const TREE_DATA: FoodNode[] = [
     MatRadioModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatCardModule,
+    MatGridListModule,
     CommonModule 
     ],
 })
@@ -88,7 +121,7 @@ export class TreeNestedOverviewExample {
   treeControl = new NestedTreeControl<FoodNode>(node => node.children);
   dataSource = new MatTreeNestedDataSource<FoodNode>();
   showDiv?: string;
-
+  mudancas2 = mudancas;
   constructor(public dialog: MatDialog) {
     this.dataSource.data = TREE_DATA;
     this.treeControl.expand(this.dataSource.data[0]);
@@ -99,9 +132,9 @@ export class TreeNestedOverviewExample {
   
   hasChild = (_: number, node: FoodNode) => !!node.children && node.children.length > 0;
 
-  openDialog(): void {
+  openDialog(nome: string): void {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-      data: {},
+      data: {nome},
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -109,9 +142,9 @@ export class TreeNestedOverviewExample {
     });
   }
 
-  openDialog2(): void {
+  openDialog2(nome: string): void {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog2, {
-      data: {},
+      data: {nome},
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -119,15 +152,16 @@ export class TreeNestedOverviewExample {
     });
   }
 
-  openDialog3(): void {
+  openDialog3(nome: string): void {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog3, {
-      data: {},
+      data: {nome},
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
   }
+  
 }
 
 @Component({
@@ -153,6 +187,16 @@ export class DialogOverviewExampleDialog {
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  onPersist(nome: string): void {
+    mudancas.push({
+      nome,
+      cor: '#0090ff1a',
+      detalhes: 'Alteração dos atributos:'
+      
+    });
+    this.onNoClick();
   }
 }
 
@@ -180,6 +224,16 @@ export class DialogOverviewExampleDialog2 {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+  onPersist(nome: string): void {
+    mudancas.push({
+      nome,
+      cor: '#00ff5017',
+      detalhes: 'Criação de nova lotação'
+      
+    });
+    this.onNoClick();
+  }
 }
 
 @Component({
@@ -205,6 +259,16 @@ export class DialogOverviewExampleDialog3 {
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  onPersist(nome: string): void {
+    mudancas.push({
+      nome,
+      cor: '#ff000012',
+      detalhes: 'Extinguir lotação'
+      
+    });
+    this.onNoClick();
   }
 }
 /**  Copyright 2024 Google LLC. All Rights Reserved.

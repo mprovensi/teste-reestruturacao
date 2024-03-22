@@ -24,3 +24,29 @@
 .example-tree div[role=group] > .mat-tree-node {
   padding-left: 40px;
 }
+
+::ng-deep .mat-grid-tile-content {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  display: table-row !important;
+  align-items: flex-start !important;
+  justify-content: center;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+}
+
+.left {
+  width: 65%;
+}
+
+.right {
+  width: 35%;
+}

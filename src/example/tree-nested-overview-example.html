@@ -1,57 +1,78 @@
-<h3>Simulação reestruturação V1</h3>
+
+
+<div style="width: 100%; text-align: center;"><h2>Simulação de reestruturação administrativa - v0.0 (protótipo)</h2></div>
 <br/>
 
-<mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
-  <!-- This is the tree node template for leaf nodes -->
-  <!-- There is inline padding applied to this node using styles.
-    This padding value depends on the mat-icon-button width. -->
-  <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle  (mouseover)="showDiv = node.name" style="width: 100%;">
-      {{node.name}}
+<div class="container">
+  <div class="left">
+    <mat-card style="width: 95%; min-height: 90vh;">
+      <mat-card-content>
+        <div> Saldo atual: <b>R$ 300.000,00</b> </div>
+        <br/>
+        <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
+          <!-- This is the tree node template for leaf nodes -->
+          <!-- There is inline padding applied to this node using styles.
+            This padding value depends on the mat-icon-button width. -->
+          <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle  (mouseover)="showDiv = node.name">
+              {{node.name}}
+              <div  style="margin-left: auto;">
+                <button mat-icon-button *ngIf="showDiv == node.name" color="primary" style="font-size: 1.5em;" (click)="openDialog(node.name)">
+                  <mat-icon>menu</mat-icon>
+                </button>
+                <button mat-icon-button *ngIf="showDiv == node.name" color="primary" style="color:green; font-size: 1.5em;" (click)="openDialog2(node.name)">
+                  <mat-icon>add</mat-icon>
+                </button>
+                <button mat-icon-button *ngIf="showDiv == node.name" color="primary" style="color:red;" (click)="openDialog3(node.name)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+          </mat-tree-node>
+          <!-- This is the tree node template for expandable nodes -->
+          <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild"  >
+              <div class="mat-tree-node"  (mouseover)="showDiv = node.name">
+                <button mat-icon-button matTreeNodeToggle
+                        [attr.aria-label]="'Toggle ' + node.name">
+                  <mat-icon class="mat-icon-rtl-mirror">
+                    {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                  </mat-icon>
+                </button>
+                {{node.name}}
+                <div style="margin-left: auto;">
+                  <button mat-icon-button *ngIf="showDiv == node.name" color="primary" style="font-size: 1.5em;" (click)="openDialog(node.name)">
+                    <mat-icon>menu</mat-icon>
+                  </button>
+                  <button mat-icon-button *ngIf="showDiv == node.name" color="primary" style="color:green; font-size: 1.5em;" (click)="openDialog2(node.name)">
+                    <mat-icon>add</mat-icon>
+                  </button>
+                  <button mat-icon-button *ngIf="showDiv == node.name" color="primary" style="color:red;" (click)="openDialog3(node.name)">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </div>
+              </div>
+              <!-- There is inline padding applied to this div using styles.
+                  This padding value depends on the mat-icon-button width.  -->
+              <div [class.example-tree-invisible]="!treeControl.isExpanded(node)"
+                  role="group">
+                <ng-container matTreeNodeOutlet></ng-container>
+            </div>
+          </mat-nested-tree-node>
+        </mat-tree>
+    
+      </mat-card-content>
+    </mat-card>
+  </div>
 
-      <mat-icon *ngIf="showDiv == node.name" style="margin-left: 0.5rem; color:blue; font-size: 1.5em; cursor: pointer;" (click)="openDialog()">
-        menu
-      </mat-icon>
-      <mat-icon *ngIf="showDiv == node.name" style="color:green; font-size: 1.5em; cursor: pointer;" (click)="openDialog2()">
-        add
-      </mat-icon>
-      <mat-icon *ngIf="showDiv == node.name" style="color:red; font-size: 1.5em; cursor: pointer;" (click)="openDialog3()">
-        delete
-      </mat-icon>
 
-  </mat-tree-node>
-  <!-- This is the tree node template for expandable nodes -->
-  <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild"  >
-      <div class="mat-tree-node"  (mouseover)="showDiv = node.name">
-        <button mat-icon-button matTreeNodeToggle
-                [attr.aria-label]="'Toggle ' + node.name">
-          <mat-icon class="mat-icon-rtl-mirror">
-            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-          </mat-icon>
-        </button>
-        {{node.name}}
-        <mat-icon *ngIf="showDiv == node.name" style="margin-left: 0.5rem; color:blue; font-size: 1.5em; cursor: pointer;" (click)="openDialog()">
-          menu
-        </mat-icon>
-        <mat-icon *ngIf="showDiv == node.name" style="color:green; font-size: 1.5em; cursor: pointer;" (click)="openDialog2()">
-          add
-        </mat-icon>
-        <mat-icon *ngIf="showDiv == node.name" style="color:red; font-size: 1.5em; cursor: pointer;" (click)="openDialog3()">
-          delete
-        </mat-icon>
-      </div>
-      <!-- There is inline padding applied to this div using styles.
-          This padding value depends on the mat-icon-button width.  -->
-      <div [class.example-tree-invisible]="!treeControl.isExpanded(node)"
-          role="group">
-        <ng-container matTreeNodeOutlet></ng-container>
-    </div>
-  </mat-nested-tree-node>
-</mat-tree>
-<br/>
-<div> Saldo atual: <b>R$ 300.000,00</b> </div>
-<br/>
+  <div class="right">
+    @for (mudanca of mudancas2; track mudanca) {
+      <mat-card [ngStyle]="{'margin-bottom': '0.5rem', 'background-color': mudanca.cor}">
+        <mat-card-content>
+          <div>{{mudanca.nome}}</div>
+          <div>{{mudanca.detalhes}}</div>
+        </mat-card-content>
+      </mat-card>
+    }
+  </div>
+</div>
 
 
-<!-- Copyright 2024 Google LLC. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at https://angular.io/license -->

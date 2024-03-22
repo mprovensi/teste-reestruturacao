@@ -1,7 +1,8 @@
 <h2 mat-dialog-title>Extinguir Lotação?</h2>
 <mat-dialog-content>
+  <p>{{data.nome}}</p>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancelar</button>
-  <button mat-button [mat-dialog-close]="data.nome" cdkFocusInitial>Extinguir</button>
+  <button mat-button (click)="onPersist(data.nome)" cdkFocusInitial>Extinguir</button>
 </mat-dialog-actions>

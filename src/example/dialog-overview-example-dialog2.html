@@ -1,11 +1,11 @@
 <h2 mat-dialog-title>Nova Lotação</h2>
 <mat-dialog-content>
-  <mat-form-field>
+  <mat-form-field style="width: 22rem;">
     <mat-label>Nome da Lotação</mat-label>
     <input matInput [(ngModel)]="data.nome">
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancelar</button>
-  <button mat-button [mat-dialog-close]="data.nome" cdkFocusInitial>Salvar</button>
+  <button mat-button (click)="onPersist(data.nome)" cdkFocusInitial>Salvar</button>
 </mat-dialog-actions>
