@@ -1,6 +1,8 @@
+<mat-toolbar color="primary">
+  <span>Reestruturação Administrativa - v0.0 (protótipo)</span>
+  <span class="example-spacer"></span>
+</mat-toolbar>
 
-
-<div style="width: 100%; text-align: center;"><h2>Simulação de reestruturação administrativa - v0.0 (protótipo)</h2></div>
 <br/>
 
 <div class="container">
@@ -68,6 +70,13 @@
 
 
   <div class="right">
+    <div *ngIf="mudancas2.length == 0">
+      <mat-card [ngStyle]="{'margin-bottom': '0.5rem'}">
+        <mat-card-content>
+          Aguadando alterações ...
+        </mat-card-content>
+      </mat-card>
+    </div>
     @for (mudanca of mudancas2; track mudanca) {
       <mat-card [ngStyle]="{'margin-bottom': '0.5rem', 'background-color': mudanca.cor}">
         <mat-card-content>
@@ -75,7 +84,7 @@
           <div>{{mudanca.detalhes}}</div>
         </mat-card-content>
         <mat-card-actions align="end">
-          <button mat-button (click)="onCancelar(mudanca.nome)">Reverter</button>
+          <button mat-button (click)="onCancelar(mudanca.nome)">Desfazer</button>
         </mat-card-actions>
       </mat-card>
     }

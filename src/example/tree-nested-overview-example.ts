@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatToolbarModule} from '@angular/material/toolbar';
 import {
   MatDialog,
   MAT_DIALOG_DATA,
@@ -114,6 +115,7 @@ const mudancas: {
     MatSelectModule,
     MatCardModule,
     MatGridListModule,
+    MatToolbarModule,
     CommonModule 
     ],
 })
