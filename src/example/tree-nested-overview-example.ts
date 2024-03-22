@@ -28,6 +28,7 @@ import {
  * Each node has a name and an optional list of children.
  */
 interface FoodNode {
+  id: string;
   name: string;
   children?: FoodNode[];
 }
@@ -39,49 +40,133 @@ export interface DialogData {
 
 const TREE_DATA: FoodNode[] = [
   {
-    name: 'SECRETARIA DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO',
+    id: '1',
+    name: 'SECRETARIA DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO - CJ-3',   
     children: [
       {
-        name: 'COORDENADORIA DE INFRAESTRUTURA DE TIC',
+        id: '2',
+        name: 'COORDENADORIA DE INFRAESTRUTURA DE TIC - CJ-2',
         children: [
           {
-            name: 'SEÇÃO DE BANCO DE DADOS',
+            id: '3',
+            name: 'SEÇÃO DE BANCO DE DADOS - FC-5',
           },
           {
-            name: 'DIVISÃO DE DATA CENTER E REDES',
+            id: '4',
+            name: 'DIVISÃO DE DATA CENTER E REDES - CJ-1',
             children: [
-              {name: 'SEÇÃO DE REDES DE COMUNICAÇÃO '}
+              {
+                id: '5',
+                name: 'SEÇÃO DE REDES DE COMUNICAÇÃO - FC-5',
+                children: [
+                  {
+                    id: '6',
+                    name: 'ASSISTENTE ADMINISTRATIVO - FC-3',
+                  },
+                ]
+              }
             ]
           },
           {
-            name: 'DIVISÃO DE ADMINISTRAÇÃO DE SERVIDORES DE APLICAÇÃO',
+            id: '7',
+            name: 'DIVISÃO DE ADMINISTRAÇÃO DE SERVIDORES DE APLICAÇÃO - CJ-1',
+            children: [
+              {
+                id: '8',
+                name: 'ASSISTENTE ADMINISTRATIVO - FC-3',
+              },
+            ]
           },
         ],
       },
       {
-        name: 'COORDENADORIA DE SISTEMAS DE INFORMAÇÃO',
+        id: '9',
+        name: 'COORDENADORIA DE SISTEMAS DE INFORMAÇÃO - CJ-2',
         children: [
-          {name: 'SEÇÃO DE ATENDIMENTO AO PJE'},
-          {name: 'DIVISÃO DE MANUTENÇÃO DE SISTEMAS'},
-          {name: 'SEÇÃO DE ADMINISTRAÇÃO DO E-GESTÃO'}
+          {
+            id: '10',
+            name: 'SEÇÃO DE ATENDIMENTO AO PJE - FC-5'
+          },
+          {
+            id: '11',
+            name: 'DIVISÃO DE MANUTENÇÃO DE SISTEMAS - CJ-1',
+            children: [
+              {
+                id: '12',
+                name: 'ASSISTENTE DE SERVIÇO - FC-4',
+              },
+            ]
+          },
+          {
+            id: '13',
+            name: 'SEÇÃO DE ADMINISTRAÇÃO DO E-GESTÃO'
+          },
+          {
+            id: '14',
+            name: 'ASSISTENTE ADMINISTRATIVO - FC-3',
+          },
+          {
+            id: '15',
+            name: 'ASSISTENTE ADMINISTRATIVO - FC-3',
+          },
+          {
+            id: '16',
+            name: 'ASSISTENTE ADMINISTRATIVO - FC-3',
+          },
+          {
+            id: '17',
+            name: 'ASSISTENTE ADMINISTRATIVO - FC-3',
+          },
+          {
+            id: '18',
+            name: 'ASSISTENTE ADMINISTRATIVO - FC-3',
+          },
         ],
       },
       {
-        name: 'DIVISÃO DE ATENDIMENTO DE TIC',
+        id: '19',
+        name: 'DIVISÃO DE ATENDIMENTO DE TIC - CJ-1',
         children: [
-          {name: 'SEÇÃO DE MANUTENÇÃO DE MICROINFORMÁTICA '},
+          {
+            id: '20',
+            name: 'SEÇÃO DE MANUTENÇÃO DE MICROINFORMÁTICA - FC-5',
+            children: [
+              {
+                id: '21',
+                name: 'ASSISTENTE ADMINISTRATIVO - FC-3',
+              },
+            ]
+          },
         ],
       },
       {
-        name: 'COORDENADORIA DE RELACIONAMENTO DE TIC',
+        id: '22',
+        name: 'COORDENADORIA DE RELACIONAMENTO DE TIC - CJ-2',
         children: [
-          {name: 'SEÇÃO DE OTIMIZAÇÃO DO ATENDIMENTO DE TIC'},
+          {
+            id: '23',
+            name: 'SEÇÃO DE OTIMIZAÇÃO DO ATENDIMENTO DE TIC - FC-5'
+          },
         ],
       },
       {
-        name: 'COORDENADORIA DE PLANEJAMENTO E GESTÃO DE TIC',
+        id: '24',
+        name: 'COORDENADORIA DE PLANEJAMENTO E GESTÃO DE TIC - CJ-2',
         children: [
-          {name: 'SEÇÃO DE APOIO ÀS CONTRATAÇÕES DE TIC'},
+          {
+            id: '25',
+            name: 'SEÇÃO DE APOIO ÀS CONTRATAÇÕES DE TIC - FC-5',
+            children: [
+              {
+                id: '26',
+                name: 'ASSISTENTE ADMINISTRATIVO - FC-3',
+              },
+            ]
+          },
+          {
+            id: '27',
+            name: 'ASSISTENTE ADMINISTRATIVO - FC-3',
+          },
         ],
       },
     ],
@@ -278,7 +363,6 @@ export class DialogOverviewExampleDialog3 {
       detalhes: 'Extinguir lotação'
       
     });
-    this.onNoClick();
   }
 }
 /**  Copyright 2024 Google LLC. All Rights Reserved.
