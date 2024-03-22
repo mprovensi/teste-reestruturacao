@@ -1,6 +1,8 @@
-<h2 mat-dialog-title>Editar Lotação</h2>
+<h2 mat-dialog-title>Alterar</h2>
+
 <mat-dialog-content>
 
+    <p>{{data.nome}}</p>
 
     <div class="example-container">
         <form>
@@ -8,17 +10,17 @@
           <div class="example-form-fields">
             <mat-form-field style="margin-right: 1rem;">
               <mat-label>Nome</mat-label>
-              <input matInput placeholder="Nome da Lotação" required>
+              <input matInput placeholder="Nome da Lotação" value="{{data.nome}}">
             </mat-form-field>
       
             <mat-form-field style="margin-right: 1rem;">
               <mat-label>Descrição</mat-label>
-              <input matInput placeholder="Descrição da Lotação" required>
+              <input matInput placeholder="Descrição da Lotação" value="">
             </mat-form-field>
       
             <mat-form-field style="margin-right: 1rem;">
               <mat-label>Servidores</mat-label>
-              <input matInput placeholder="Número de servidores" required>
+              <input matInput placeholder="Número de servidores" value="10">
             </mat-form-field>
       
             <mat-form-field style="margin-right: 1rem;">

@@ -162,6 +162,14 @@ export class TreeNestedOverviewExample {
     });
   }
   
+  onCancelar(nome: string): void {
+    const index = mudancas.findIndex(obj => obj.nome === nome);
+
+    // Se o objeto for encontrado no array, remova-o
+    if (index !== -1) {
+      mudancas.splice(index, 1);
+    }
+  }
 }
 
 @Component({

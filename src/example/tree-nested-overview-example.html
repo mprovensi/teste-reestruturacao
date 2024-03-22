@@ -14,7 +14,9 @@
           <!-- There is inline padding applied to this node using styles.
             This padding value depends on the mat-icon-button width. -->
           <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle  (mouseover)="showDiv = node.name">
-              {{node.name}}
+
+              <span (click)="openDialog(node.name)" style="cursor: pointer;">{{node.name}}</span>
+
               <div  style="margin-left: auto;">
                 <button mat-icon-button *ngIf="showDiv == node.name" color="primary" style="font-size: 1.5em;" (click)="openDialog(node.name)">
                   <mat-icon>menu</mat-icon>
@@ -36,7 +38,9 @@
                     {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
                   </mat-icon>
                 </button>
-                {{node.name}}
+
+                <span (click)="openDialog(node.name)" style="cursor: pointer;">{{node.name}}</span>
+                
                 <div style="margin-left: auto;">
                   <button mat-icon-button *ngIf="showDiv == node.name" color="primary" style="font-size: 1.5em;" (click)="openDialog(node.name)">
                     <mat-icon>menu</mat-icon>
@@ -70,6 +74,9 @@
           <div>{{mudanca.nome}}</div>
           <div>{{mudanca.detalhes}}</div>
         </mat-card-content>
+        <mat-card-actions align="end">
+          <button mat-button (click)="onCancelar(mudanca.nome)">Reverter</button>
+        </mat-card-actions>
       </mat-card>
     }
   </div>
