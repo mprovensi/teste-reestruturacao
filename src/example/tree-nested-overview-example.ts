@@ -32,6 +32,8 @@ interface FoodNode {
   name: string;
   tipo?: string;
   children?: FoodNode[];
+  servidor?: string;
+  codServ?: string;
 }
 
 export interface DialogData {
@@ -44,30 +46,42 @@ const TREE_DATA: FoodNode[] = [
     id: '1',
     name: 'SECRETARIA DE TECNOLOGIA DA INFORMAÇÃO E COMUNICAÇÃO - CJ-3',
     tipo: 'UNIDADE',
+    servidor: 'Servidor Teste 1',
+    codServ: '111',
     children: [
       {
         id: '2',
         name: 'COORDENADORIA DE INFRAESTRUTURA DE TIC - CJ-2',
         tipo: 'UNIDADE',
+        servidor: 'Servidor Teste 2',
+        codServ: '222',
         children: [
           {
             id: '3',
             name: 'SEÇÃO DE BANCO DE DADOS - FC-5',
             tipo: 'UNIDADE',
+            servidor: 'Servidor Teste 3',
+            codServ: '333',
           },
           {
             id: '4',
             name: 'DIVISÃO DE DATA CENTER E REDES - CJ-1',
             tipo: 'UNIDADE',
+            servidor: 'Servidor Teste 4',
+            codServ: '444',
             children: [
               {
                 id: '5',
                 name: 'SEÇÃO DE REDES DE COMUNICAÇÃO - FC-5',
                 tipo: 'UNIDADE',
+                servidor: 'Servidor Teste 5',
+                codServ: '555',
                 children: [
                   {
                     id: '6',
                     name: 'ASSISTENTE ADMINISTRATIVO - FC-3',
+                    servidor: 'Servidor Teste 6',
+                    codServ: '666',
                   },
                 ]
               }
@@ -111,26 +125,38 @@ const TREE_DATA: FoodNode[] = [
             id: '13',
             name: 'SEÇÃO DE ADMINISTRAÇÃO DO E-GESTÃO',
             tipo: 'UNIDADE',
+            servidor: 'Servidor Teste 11',
+            codServ: '111',
           },
           {
             id: '14',
             name: 'ASSISTENTE ADMINISTRATIVO - FC-3',
+            servidor: 'Servidor Teste 22',
+            codServ: '222',
           },
           {
             id: '15',
             name: 'ASSISTENTE ADMINISTRATIVO - FC-3',
+            servidor: 'Servidor Teste 33',
+            codServ: '333',
           },
           {
             id: '16',
             name: 'ASSISTENTE ADMINISTRATIVO - FC-3',
+            servidor: 'Servidor Teste 44',
+            codServ: '444',
           },
           {
             id: '17',
             name: 'ASSISTENTE ADMINISTRATIVO - FC-3',
+            servidor: 'Servidor Teste 55',
+            codServ: '555',
           },
           {
             id: '18',
             name: 'ASSISTENTE ADMINISTRATIVO - FC-3',
+            servidor: 'Servidor Teste 66',
+            codServ: '666',
           },
         ],
       },
@@ -380,6 +406,7 @@ export class DialogOverviewExampleDialog3 {
       detalhes: 'Extinguir lotação'
       
     });
+    this.onNoClick();
   }
 }
 /**  Copyright 2024 Google LLC. All Rights Reserved.

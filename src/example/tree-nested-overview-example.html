@@ -17,7 +17,10 @@
             This padding value depends on the mat-icon-button width. -->
           <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle  (mouseover)="showDiv = node.id">
 
-              <span (click)="openDialog(node.name)" [ngStyle]="{'cursor': 'pointer', 'font-weight': node.tipo == 'UNIDADE' ? 'bold': 'nomral' }">{{node.name}}</span>
+              <span (click)="openDialog(node.name)" [ngStyle]="{'cursor': 'pointer', 'font-weight': node.tipo == 'UNIDADE' ? 'bold': 'nomral' }">
+                {{node.name}}
+                <div *ngIf="node.servidor != null" style="font-weight: normal; font-size: 0.8rem;">{{node.codServ}} - {{node.servidor}}</div>
+              </span>
 
               <div  style="margin-left: auto;">
                 <button mat-icon-button *ngIf="showDiv == node.id" color="primary" style="font-size: 1.5em;" (click)="openDialog(node.name)">
@@ -41,7 +44,10 @@
                   </mat-icon>
                 </button>
 
-                <span (click)="openDialog(node.name)" [ngStyle]="{'cursor': 'pointer', 'font-weight': node.tipo == 'UNIDADE' ? 'bold': 'nomral' }">{{node.name}}</span>
+                <span (click)="openDialog(node.name)" [ngStyle]="{'cursor': 'pointer', 'font-weight': node.tipo == 'UNIDADE' ? 'bold': 'nomral' }">
+                  {{node.name}}
+                  <div *ngIf="node.servidor != null"  style="font-weight: normal; font-size: 0.8rem;">{{node.codServ}} - {{node.servidor}}</div>
+                </span>
                 
                 <div style="margin-left: auto;">
                   <button mat-icon-button *ngIf="showDiv == node.id" color="primary" style="font-size: 1.5em;" (click)="openDialog(node.name)">
